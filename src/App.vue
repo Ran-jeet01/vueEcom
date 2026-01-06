@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import Navbar from "./components/Navbar.vue";
 const blank = "  ";
 const count = ref(1);
 </script>
 
 <template>
-  <nav class="nav">
-    <router-link to="/">Home</router-link>
-    <!-- <router-link to="/product">About</router-link>
-    <router-link to="/cart">Contact</router-link> -->
-  </nav>
+  <Navbar />
   <router-view />
 </template>
 
@@ -39,9 +36,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
-.nav {
-  display: flex;
-  gap: 300px;
 }
 </style>

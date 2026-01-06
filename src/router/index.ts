@@ -1,8 +1,14 @@
 // router/index.js
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/pages/Home.vue";
+import About from "@/pages/About.vue";
+import Product from "@/pages/Product.vue";
 
-const routes = [{ path: "/", name: "home", component: Home }];
+const routes = [
+  { path: "/", name: "home", component: Home },
+  { path: "/about", name: "about", component: About },
+  { path: "/product", name: "product", component: Product },
+];
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,40 +16,3 @@ const router = createRouter({
 });
 
 export default router;
-
-// import { createRouter, createWebHistory } from "vue-router";
-
-// import About from "@/pages/About.vue";
-// import Social from "@/pages/Social.vue";
-// import Insta from "@/pages/Insta.vue";
-// import Facebook from "@/pages/Facebook.vue";
-
-// const routes = [
-//   {
-//     path: "/about",
-//     component: About,
-//     children: [
-//       {
-//         path: "social",
-//         component: Social,
-//         children: [
-//           {
-//             path: "insta",
-//             name: "about-social-insta",
-//             component: Insta,
-//           },
-//           {
-//             path: "facebook",
-//             name: "about-social-facebook",
-//             component: Facebook,
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// ];
-
-// export default createRouter({
-//   history: createWebHistory(),
-//   routes,
-// });

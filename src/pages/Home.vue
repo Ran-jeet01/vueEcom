@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { fetchProducts } from "@/service/  products.service";
 import { onMounted, ref } from "vue";
 const loading = ref(true);
@@ -10,11 +10,206 @@ onMounted(async () => {
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
-});
+}); 
 </script>
 
 <template>
   <p>you are in the Home page</p>
 </template>
 
-<style scoped></style>
+<style scoped></style> -->
+<script setup>
+import ProductCard from "../components/ProductCard.vue";
+import { RouterLink } from "vue-router";
+</script>
+
+<template>
+  <div class="home-page fade-in">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text animate-fade-in">
+          <span class="hero-subtitle">New Collection 2024</span>
+          <h1 class="hero-title">
+            Elevate Your <br />
+            Lifestyle
+          </h1>
+          <p class="hero-desc">
+            Discover our curated selection of premium essentials designed to
+            inspire and endure. Limited edition pieces available now.
+          </p>
+          <div class="hero-cta">
+            <RouterLink to="/products" class="btn btn-primary"
+              >Shop Collection</RouterLink
+            >
+            <RouterLink to="/about" class="btn btn-outline"
+              >Our Story</RouterLink
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Trending Now</h2>
+          <p class="section-subtitle">Handpicked favorites just for you.</p>
+        </div>
+
+        <div class="product-grid">
+          <ProductCard
+            title="Modern Lamp"
+            price="$120.00"
+            image="https://images.unsplash.com/photo-1507473888900-52e1adad5481?q=80&w=1973&auto=format&fit=crop"
+          />
+          <ProductCard
+            title="Leather Chair"
+            price="$550.00"
+            image="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1964&auto=format&fit=crop"
+          />
+          <ProductCard
+            title="Ceramic Vases"
+            price="$89.00"
+            image="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?q=80&w=2070&auto=format&fit=crop"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<style scoped>
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/x.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  width: 100%;
+}
+
+.hero-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  display: block;
+  font-size: 1rem;
+}
+
+.hero-title {
+  font-size: 5rem;
+  line-height: 1;
+  color: white;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-desc {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: white;
+  color: black;
+  border: 2px solid white;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: black;
+  border-color: white;
+}
+
+/* Featured Section */
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>
