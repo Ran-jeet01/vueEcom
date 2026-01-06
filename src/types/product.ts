@@ -1,4 +1,4 @@
-interface ProductType {
+interface ProductDataType {
   id: number;
   title: string;
   price: number;
@@ -7,3 +7,6 @@ interface ProductType {
   image: string;
   rating: { rate: number; count: number };
 }
+type ProductResponse = ProductDataType[];
+
+export type { ProductDataType, ProductResponse };

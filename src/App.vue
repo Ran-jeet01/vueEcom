@@ -7,8 +7,8 @@ const count = ref(1);
 <template>
   <nav class="nav">
     <router-link to="/">Home</router-link>
-    <router-link to="/product">About</router-link>
-    <router-link to="/cart">Contact</router-link>
+    <!-- <router-link to="/product">About</router-link>
+    <router-link to="/cart">Contact</router-link> -->
   </nav>
   <router-view />
 </template>
