@@ -1,40 +1,27 @@
 :root {
-  /* Premium Color Palette */
   --primary-color: #0f172a;
-  /* Slate 900 */
   --secondary-color: #334155;
-  /* Slate 700 */
   --accent-color: #6366f1;
-  /* Indigo 500 */
   --accent-hover: #4f46e5;
-  /* Indigo 600 */
   --background-color: #f8fafc;
-  /* Slate 50 */
   --surface-color: #ffffff;
   --text-primary: #1e293b;
-  /* Slate 800 */
   --text-secondary: #64748b;
-  /* Slate 500 */
   --success-color: #10b981;
   --error-color: #ef4444;
 
-  /* Gradients */
   --gradient-main: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
 
-  /* Typography */
   --font-family: "Outfit", sans-serif;
 
-  /* Spacing */
   --container-width: 1280px;
   --header-height: 80px;
 
-  /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 4px 6px -4px rgb(0 0 0 / 0.1);
 
-  /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
 }
@@ -88,7 +75,6 @@ img {
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   border-radius: 99px;
-  /* Pill shape */
   transition: all var(--transition-normal);
   gap: 0.5rem;
 }
@@ -133,7 +119,6 @@ img {
   margin-right: auto;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;

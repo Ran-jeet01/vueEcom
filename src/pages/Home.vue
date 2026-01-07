@@ -1,35 +1,34 @@
-<!-- <script setup>
-import { fetchProducts } from "@/service/  products.service";
-import { onMounted, ref } from "vue";
-const loading = ref(true);
-const error = ref(null);
-onMounted(async () => {
-  try {
-    const response = await fetchProducts();
-    console.log(response);
-  } catch (error) {
-    console.error("Failed to fetch products:", error);
-  }
-}); 
-</script>
-
-<template>
-  <p>you are in the Home page</p>
-</template>
-
-<style scoped></style> -->
 <script setup>
 import ProductCard from "../components/ProductCard.vue";
 import { RouterLink } from "vue-router";
+// import { fetchProducts } from "@/service/  products.service";
+import { onMounted, ref } from "vue";
+import { useProductsStore } from "@/stores/productsStore";
+
+const store = useProductsStore();
+const res = ref(null);
+const loading = ref(true);
+
+onMounted(async () => {
+  try {
+    await store.loadProducts();
+    res.value = store.products;
+    console.log(res.value[0].imag);
+
+    console.log("after res");
+  } catch (error) {
+    console.log(error);
+  }
+});
 </script>
 
 <template>
   <div class="home-page fade-in">
-    <!-- Hero Section -->
+    <!-- Hero Section  -->
     <section class="hero">
       <div class="container hero-content">
         <div class="hero-text animate-fade-in">
-          <span class="hero-subtitle">New Collection 2024</span>
+          <span class="hero-subtitle">New Collection 2025</span>
           <h1 class="hero-title">
             Elevate Your <br />
             Lifestyle
@@ -50,29 +49,20 @@ import { RouterLink } from "vue-router";
       </div>
     </section>
 
-    <!-- Featured Section -->
+    <!-- Feature -->
     <section class="featured section-padding">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Trending Now</h2>
           <p class="section-subtitle">Handpicked favorites just for you.</p>
         </div>
-
-        <div class="product-grid">
+        <div v-if="loading" class="product-grid"></div>
+        <div v-if="res" class="product-grid">
           <ProductCard
-            title="Modern Lamp"
-            price="$120.00"
-            image="https://images.unsplash.com/photo-1507473888900-52e1adad5481?q=80&w=1973&auto=format&fit=crop"
-          />
-          <ProductCard
-            title="Leather Chair"
-            price="$550.00"
-            image="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1964&auto=format&fit=crop"
-          />
-          <ProductCard
-            title="Ceramic Vases"
-            price="$89.00"
-            image="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?q=80&w=2070&auto=format&fit=crop"
+            v-for="obj in res.slice(0, 6)"
+            :title="obj.title"
+            :price="'$' + obj.price"
+            :image="obj.image"
           />
         </div>
       </div>
