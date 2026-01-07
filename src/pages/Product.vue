@@ -30,7 +30,7 @@ onMounted(async () => {
         v-for="product in res"
         :key="index"
         :title="product.title"
-        :price="product.price"
+        :price="'$ ' + product.price"
         :image="product.image"
       />
     </div>

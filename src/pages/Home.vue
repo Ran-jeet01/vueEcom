@@ -61,7 +61,7 @@ onMounted(async () => {
           <ProductCard
             v-for="obj in res.slice(0, 6)"
             :title="obj.title"
-            :price="'$' + obj.price"
+            :price="'$ ' + obj.price"
             :image="obj.image"
           />
         </div>
