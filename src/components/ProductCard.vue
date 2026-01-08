@@ -1,21 +1,34 @@
-<script setup>
-defineProps({
-  title: String,
-  price: [String, Number],
-  image: String,
-});
+<script setup lang="ts">
+import type { ReqProduct } from "@/types/product";
+// defineProps({
+//   title: String,
+//   price: [String, Number],
+//   image: String,
+// });
+const props = defineProps<{
+  product: ReqProduct;
+}>();
+
+const emit = defineEmits<{
+  (e: "add-to-cart", product: ReqProduct): void;
+}>();
 </script>
 
 <template>
   <div class="product-card">
     <div class="product-img-box">
-      <img :src="image" :alt="title" />
+      <img :src="props.product.image" :alt="props.product.title" />
     </div>
     <div class="product-info">
-      <h3>{{ title }}</h3>
+      <h3>{{ props.product.title }}</h3>
       <div class="product-action">
-        <span class="price">{{ price }}</span>
-        <button class="btn btn-primary addToCart">Add to Cart</button>
+        <span class="price">{{ props.product.price }}</span>
+        <button
+          class="btn btn-primary addToCart"
+          @click="emit('add-to-cart', product)"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>

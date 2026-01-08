@@ -7,6 +7,11 @@ interface ProductDataType {
   image: string;
   rating: { rate: number; count: number };
 }
+interface ReqProduct {
+  title: string;
+  price: string | number;
+  image: string;
+}
 type ProductResponse = ProductDataType[];
 
-export type { ProductDataType, ProductResponse };
+export type { ProductDataType, ProductResponse, ReqProduct };
