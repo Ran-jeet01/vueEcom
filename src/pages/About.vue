@@ -91,7 +91,7 @@ import { RouterLink } from "vue-router";
 
         <div class="about-image-wrapper">
           <div class="image-bg-decoration"></div>
-          <img src="/about1.webp" alt="Brand philosophy" class="about-img" />
+          <img src="/dress.webp" alt="Brand philosophy" class="about-img" />
         </div>
       </div>
     </section>

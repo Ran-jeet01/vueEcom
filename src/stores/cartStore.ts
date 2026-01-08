@@ -34,10 +34,37 @@ export const useCartStore = defineStore("cart", () => {
     items.value = [];
   };
 
+  const increaseQuantity = (id: number) => {
+    const item = items.value.find((p) => p.id === id);
+    if (item) {
+      item.quantity += 1;
+    }
+  };
+
+  // decrease quantity by 1and remove if 0
+  const decreaseQuantity = (id: number) => {
+    const item = items.value.find((p) => p.id === id);
+    if (item) {
+      if (item.quantity > 1) {
+        item.quantity -= 1;
+      } else {
+        removeFromCart(id);
+      }
+    }
+  };
+
   // Computed
   const totalPrice = computed(() =>
     items.value.reduce((acc, p) => acc + p.price * p.quantity, 0)
   );
 
-  return { items, addToCart, removeFromCart, clearCart, totalPrice };
+  return {
+    items,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    totalPrice,
+    increaseQuantity,
+    decreaseQuantity,
+  };
 });
