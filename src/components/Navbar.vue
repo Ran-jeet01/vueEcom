@@ -70,7 +70,7 @@ onUnmounted(() => {
     </div>
   </nav>
 
-  <!-- Mobile Sidebar -->
+  <!-- sidebar -->
   <div class="mobile-sidebar" :class="{ active: isMenuOpen }">
     <div class="sidebar-header">
       <button class="close-btn" @click="toggleMenu">
@@ -283,7 +283,6 @@ onUnmounted(() => {
   color: var(--primary-color, #4caf50);
 }
 
-/* Backdrop */
 .sidebar-backdrop {
   position: fixed;
   top: 0;

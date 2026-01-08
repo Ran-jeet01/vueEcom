@@ -1,14 +1,27 @@
-<script setup lang="ts">
-import type { ReqProduct } from "@/types/product";
-import type { ProductDataType } from "@/types/product";
+<!-- <script setup lang="ts">
+import type { ProductDataType,ReqProduct } from "@/types/product";
 // defineProps({
 //   title: String,
 //   price: [String, Number],
 //   image: String,
 // });
 const props = defineProps<{
-  product?: ProductDataType;
+  product: ProductDataType;
 }>();
+
+const emit = defineEmits<{
+  (e: "add-to-cart", product: ProductDataType): void;
+}>();
+</script> -->
+<script setup lang="ts">
+import type { ProductDataType } from "@/types/product";
+
+const props = withDefaults(
+  defineProps<{
+    product: ProductDataType;
+  }>(),
+  {}
+);
 
 const emit = defineEmits<{
   (e: "add-to-cart", product: ProductDataType): void;
