@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import type { ReqProduct } from "@/types/product";
+import type { ProductDataType } from "@/types/product";
 // defineProps({
 //   title: String,
 //   price: [String, Number],
 //   image: String,
 // });
 const props = defineProps<{
-  product: ReqProduct;
+  product?: ProductDataType;
 }>();
 
 const emit = defineEmits<{
-  (e: "add-to-cart", product: ReqProduct): void;
+  (e: "add-to-cart", product: ProductDataType): void;
 }>();
 </script>
 
@@ -25,7 +26,7 @@ const emit = defineEmits<{
         <span class="price">{{ props.product.price }}</span>
         <button
           class="btn btn-primary addToCart"
-          @click="emit('add-to-cart', product)"
+          @click="emit('add-to-cart', props.product)"
         >
           Add to Cart
         </button>
@@ -127,3 +128,4 @@ const emit = defineEmits<{
   font-family: monospace;
 }
 </style>
+<!-- things to improve is to pass only required stuff -->

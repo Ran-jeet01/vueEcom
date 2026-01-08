@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import EmptyCart from "@/components/EmptyCart.vue";
+import { ref, onMounted } from "vue";
 const value: Boolean = true;
 </script>
 
